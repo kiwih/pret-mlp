@@ -25,7 +25,7 @@ void RunNetwork(struct NeuralNetwork* netw, double inputs[LAYERS_INPUT_LEN]) {
 	}
 
 	//reset the neural network (aside from the input neurons)
-	#pragma loopbound NUM_NEURONS
+	#pragma loopbound (NUM_NEURONS-LAYERS_INPUT_LEN)
 	for(uint32_t i=LAYERS_INPUT_LEN; i < NUM_NEURONS; i++) {
 		netw->Neurons[i].InputValue = 0;
 	}
